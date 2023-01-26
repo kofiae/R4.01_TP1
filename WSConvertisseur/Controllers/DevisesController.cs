@@ -23,6 +23,7 @@ namespace WSConvertisseur.Controllers
                 devises = value;
             }
         }
+
         public DevisesController()
         {
             devises= new List<Devise>();
