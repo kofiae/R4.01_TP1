@@ -76,8 +76,21 @@ namespace WSConvertisseur.Controllers
 
         // DELETE api/<DevisesController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult<Devise> Delete(int id)
         {
+            Devise? devise =
+                (from d in devises
+                 where d.Id == id
+                 select d).FirstOrDefault();
+
+            if (devise == null)
+            {
+                return NotFound();
+            }
+            else
+                devises.Remove(devise);
+
+            return devise;
         }
     }
 }
