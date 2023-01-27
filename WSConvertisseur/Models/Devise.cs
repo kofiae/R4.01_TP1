@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Numerics;
 
 namespace WSConvertisseur.Models
 {
@@ -58,6 +59,10 @@ namespace WSConvertisseur.Models
             }
         }
 
-        
+        public override bool Equals(object? obj)
+        {
+            return obj is Devise d &&
+               this.id == d.id;
+        }
     }
 }
